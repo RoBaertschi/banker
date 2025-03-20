@@ -19,6 +19,7 @@ function BaseDocument(props: SiteData) {
             </head>
             <body hx-boost="true">
                 ${props.children}
+                <div id="details"></div>
             </body>
         </html>
 `
