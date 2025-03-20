@@ -7,11 +7,12 @@ interface Props {
   };
   data: object[];
   baseUri?: string;
+  className: string;
 }
 
-const TableView: FC<Props> = ({ attributes, data, baseUri }) => {
+const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
   return (
-    <table>
+    <table className={className}>
       <tr>
         {Object.values(attributes).map((att) => (
           <th>{att}</th>
