@@ -1,10 +1,11 @@
 import { Context, Hono } from "hono";
 import { serveStatic } from "hono/bun";
 import { logger } from "hono/logger";
-import { accounts, users } from "./db";
+import { accounts, User, users } from "./db";
 import BaseDocument from "./BaseDocument";
 import TableView from "./TableView";
 import { ObjectId } from 'mongodb';
+import UserView from "./User";
 
 const app = new Hono();
 
@@ -64,6 +65,7 @@ app.get("/users-search", async (c) => {
                 is_verified: "Verified",
             }}
             data={allUsers}
+            baseUri="/users"
         ></TableView>
     );
 });
@@ -98,6 +100,7 @@ app.get("/users", async (c) => {
                     is_verified: "Verified",
                 }}
                 data={allUsers}
+                baseUri="/users"
             ></TableView>
         </BaseDocument>
     );
@@ -175,13 +178,17 @@ app.get("/acc-details/:id", async (c) => {
 
 app.get('/users/:id', async (c) => {
     const id = c.req.param("id");
-    const userArray = await users.find({ _id: new ObjectId(id) }).toArray();
+    const userArray = await users.find({ _id: id as unknown as ObjectId }).toArray();
     if (userArray.length < 1) {
         c.status(404);
         return c.html(<BaseDocument title='404 Not Found'>Could not find requested user</BaseDocument>)
     }
 
     const user = userArray[0] as unknown as User;
+
+    return c.html(
+        <UserView user={user}></UserView>
+    );
 })
 
 export default app;

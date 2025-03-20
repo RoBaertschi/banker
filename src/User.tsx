@@ -1,11 +1,16 @@
 import { FC } from 'hono/jsx';
-import { User } from './db';
+import { User as UserView } from './db';
 
 export interface Props {
-    user: User;
+    user: UserView;
 };
 
-const User: FC<Props> = ({ user }) => {
+function toDate(lol: Date) {
+    const date = new Date(lol);
+    return `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}T${date.getHours()}:${date.getSeconds()}:${date.getMilliseconds()}`;
+}
+
+const UserView: FC<Props> = ({ user }) => {
     return <form>
         <label for='user'>User</label>
         <input name='user' value={user.name} />
@@ -14,11 +19,11 @@ const User: FC<Props> = ({ user }) => {
         <label for='address'>Address</label>
         <input name='address' value={user.address} />
         <label for='date_of_birth'>Date of Birth</label>
-        <input type={'date'} name='date_of_birth' value={user.date_of_birth.toString()} />
+        <input type={'datetime-local'} name='date_of_birth' value={new Date(user.date_of_birth).toUTCString()} />
         <label for='created_at'>Created At</label>
-        <input type={'date'} name='created_at' value={user.created_at.toString()} />
+        <input type={'datetime-local'} name='created_at' value={toDate(user.created_at)} />
         <label for='updated_at'>Updated At</label>
-        <input type={'date'} name='updated_at' value={user.updated_at.toString()} />
+        <input type={'datetime-local'} name='updated_at' value={new Date(user.updated_at).toUTCString()} />
         <label for='is_verified'>Is Verified</label>
         <input type={"checkbox"} name='is_verified' value={JSON.stringify(user.is_verified)} />
 
@@ -27,4 +32,4 @@ const User: FC<Props> = ({ user }) => {
 };
 
 
-export default User;
+export default UserView;
