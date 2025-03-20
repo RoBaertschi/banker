@@ -130,6 +130,7 @@ app.get("/accounts", async (c) => {
                 Build using <a href="https://htmx.org/">htmx</a>.
             </p>
             <TableView
+                className="accounts"
                 attributes={{
                     number: "Number",
                     description: "Description",
@@ -148,7 +149,7 @@ app.get("/accounts", async (c) => {
 app.get("/acc-details/:id", async (c) => {
     const id = c.req.param("id");
     const transactions = await accounts.findOne(
-        { _id: id },
+        { _id: new ObjectId(id) },
         { projection: { transactions: 1 } }
     );
     console.log("Transactions", transactions);
@@ -159,6 +160,7 @@ app.get("/acc-details/:id", async (c) => {
 
     return c.html(
         <TableView
+            className="accounts"
             attributes={{
                 type: "Type",
                 amount: "Amount",
