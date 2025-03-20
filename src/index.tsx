@@ -192,11 +192,7 @@ app.get('/users/:id', async (c) => {
 
     const user = userArray[0] as unknown as User;
 
-    return c.html(
-        <BaseDocument title="404 Not Found">
-            Could not find requested user
-        </BaseDocument>
-    );
+    return c.html(<UserView user={user}></UserView>);
 });
 
 app.get("/about", (c) => {
