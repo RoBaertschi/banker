@@ -1,3 +1,4 @@
+use("appDatabase"); 
 // Users Collection
 db.Users.insertOne({
   "_id": "67dc0545207f868abb6360ca",
