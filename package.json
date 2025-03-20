@@ -1,0 +1,15 @@
+{
+  "name": "banker",
+  "scripts": {
+    "dev": "bun run --watch src/index.tsx",
+    "build": "bun build src/index.tsx --outdir ./build --splitting"
+  },
+  "dependencies": {
+    "hono": "^4.7.1",
+    "mongodb": "^6.15.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typed-htmx": "^0.3.1"
+  }
+}

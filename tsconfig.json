@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "target": "ES6",
+        "strict": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx",
+        "module": "node16",
+        "moduleResolution": "node16",
+        "allowJs": true,
+        "checkJs": true,
+        "noEmit": true,
+        "rootDir": ".",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
+}
