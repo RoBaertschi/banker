@@ -6,10 +6,11 @@ interface Props {
         [name: string]: string
     };
     data: object[];
+    className: string;
 }
 
-const TableView: FC<Props> = ({ attributes, data }) => {
-    return <table>
+const TableView: FC<Props> = ({ attributes, data, className }) => {
+    return <table class={className}>
         <tr>{Object.values(attributes).map(att => <th>{att}</th>)}</tr>
         {data.map(data => {
             const tds = [];

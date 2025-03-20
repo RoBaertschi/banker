@@ -1,4 +1,4 @@
-import { Hono } from 'hono';
+import { Context, Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { logger } from 'hono/logger';
 import { accounts, users } from "./db";
@@ -14,31 +14,99 @@ app.get('/', async (c) => {
     return c.html(
         <BaseDocument title='Banker'>
             <main>
-                <a href='/users'>Users</a>
-                <a href='/accounts'>Accounts</a>
+                <ul>
+                    <li><a href='/users'>Users</a></li>
+                    <li><a href='/accounts'>Accounts</a></li>
+                </ul>
             </main>
         </BaseDocument>
     );
 });
 
+async function accountsFilter(c: Context) {
+    const filter = c.req.query("filter");
+    const findFilter: { description?: RegExp | undefined } = {};
+    if (filter) {
+        findFilter.description = new RegExp(filter);
+    }
+    const allUsers = await accounts.find(findFilter).toArray();
+    return allUsers;
+}
+
+async function usersFilter(c: Context) {
+    const filter = c.req.query("filter");
+    const findFilter: { name?: RegExp | undefined } = {};
+    if (filter) {
+        findFilter.name = new RegExp(filter);
+    }
+    const allUsers = await users.find(findFilter).toArray();
+    return allUsers;
+}
+
+app.get('/users-search', async (c) => {
+    const allUsers = await usersFilter(c);
+
+    return c.html(
+        <TableView className='users' attributes={{ name: "Name", email: "E-Mail", address: "Address", date_of_birth: "Date of Birth", created_at: "Created At", updated_at: "Updated At", is_verified: "Verified" }} data={allUsers}></TableView>
+    );
+})
+
 app.get('/users', async (c) => {
-    const allUsers = await users.find().toArray();
+    const allUsers = await usersFilter(c);
+
     return c.html(
         <BaseDocument title='Banker'>
             <h1>Banker</h1>
             <p>Build using <a href='https://htmx.org/'>htmx</a>.</p>
-            <TableView attributes={{ name: "Name", email: "E-Mail", address: "Address", date_of_birth: "Date of Birth", created_at: "Created At", updated_at: "Updated At", is_verified: "Verified" }} data={allUsers}></TableView>
-        </BaseDocument>
+            <input
+                type={"search"}
+                name='filter'
+                placeholder='Search for Users...'
+                hx-get='/users-search'
+                hx-trigger="input changed delay:500ms, keyup[key=='Enter'], load"
+                hx-target=".users"
+                hx-params='*'
+            />
+            <TableView
+                className='users'
+                attributes={{
+                    name: "Name",
+                    email: "E-Mail",
+                    address: "Address",
+                    date_of_birth: "Date of Birth",
+                    created_at: "Created At",
+                    updated_at: "Updated At",
+                    is_verified: "Verified"
+                }}
+                data={allUsers}
+            ></TableView>
+        </BaseDocument >
+    );
+});
+
+app.get('/accounts-search', async (c) => {
+    const allUsers = await accountsFilter(c);
+    return c.html(
+        <TableView className='accounts' attributes={{ number: "Number", description: "Description", balance: "Balance", currency: "Currency", created_at: "Created At", updated_at: "Updated At" }} data={allUsers}></TableView>
     );
 });
 
 app.get('/accounts', async (c) => {
-    const allUsers = await accounts.find().toArray();
+    const allUsers = await accountsFilter(c);
     return c.html(
         <BaseDocument title='Banker'>
             <h1>Banker</h1>
             <p>Build using <a href='https://htmx.org/'>htmx</a>.</p>
-            <TableView attributes={{ number: "Number", description: "Description", balance: "Balance", currency: "Currency", created_at: "Created At", updated_at: "Updated At" }} data={allUsers}></TableView>
+            <input
+                type={"search"}
+                name='filter'
+                placeholder='Search for Accounts by the Description...'
+                hx-get='/accounts-search'
+                hx-trigger="input changed delay:500ms, keyup[key=='Enter'], load"
+                hx-target=".accounts"
+                hx-params='*'
+            />
+            <TableView className='accounts' attributes={{ number: "Number", description: "Description", balance: "Balance", currency: "Currency", created_at: "Created At", updated_at: "Updated At" }} data={allUsers}></TableView>
         </BaseDocument>
     );
 });
