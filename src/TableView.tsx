@@ -21,6 +21,12 @@ const TableView: FC<Props> = ({ attributes, data }) => {
                 let tdata: any = data[key as keyof (typeof data)];
                 if (typeof tdata === "boolean") {
                     tdata = JSON.stringify(tdata)
+                } else if (typeof tdata === "object") {
+                    if ("$numberDecimal" in tdata) {
+                        tdata = tdata.$numberDecimal
+                    } else if ("$timestamp" in tdata) {
+                        tdata = tdata.$timestamp
+                    }
                 }
                 tds.push(<td>{tdata}</td>)
             }
