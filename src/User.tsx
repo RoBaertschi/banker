@@ -35,7 +35,8 @@ function toDate(lol: string | Date) {
 }
 
 const UserView: FC<Props> = ({ user }) => {
-    return <form>
+    return <form method='post'>
+        <input name='_id' value={user._id} hidden />
         <label for='user'>User</label><br />
         <input name='user' value={user.name} /><br />
         <label for='email'>E-Mail</label><br />
@@ -49,7 +50,7 @@ const UserView: FC<Props> = ({ user }) => {
         <label for='updated_at'>Updated At</label><br />
         <input type={'datetime-local'} name='updated_at' value={toDate(user.updated_at)} /><br />
         <label for='is_verified'>Is Verified</label>
-        <input type={"checkbox"} name='is_verified' value={JSON.stringify(user.is_verified)} /><br />
+        <input type={"checkbox"} name='is_verified' checked={user.is_verified} /><br />
 
         <button type='submit'>Submit</button>
     </form>

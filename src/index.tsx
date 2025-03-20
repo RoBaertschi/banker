@@ -231,33 +231,29 @@ app.get("/about", (c) => {
   );
 });
 
-app.post("/users/:id", async (c) => {
-  const id = c.req.param("id");
-  const data = await c.req.formData();
+app.post('/users', async (c) => {
+    const data = await c.req.formData();
 
-  const user = data.get("user");
-  const email = data.get("email");
-  const address = data.get("address");
-  const date_of_birth = data.get("date_of_birth");
-  const created_at = data.get("created_at");
-  const updated_at = data.get("updated_at");
-  const is_verified = data.get("is_verified");
+    const id = data.get("_id");
+    const user = data.get("user");
+    const email = data.get("email");
+    const address = data.get("address");
+    const date_of_birth = data.get("date_of_birth");
+    const created_at = data.get("created_at");
+    const updated_at = data.get("updated_at");
+    const is_verified = Boolean(data.get("is_verified"));
 
   const existingUser = await users.findOne({ _id: id as unknown as ObjectId });
   if (existingUser === null) {
     return notFound404(c);
   }
 
-  existingUser["user"] = user;
-  existingUser["email"] = email;
-  existingUser["address"] = address;
-  existingUser["date_of_birth"] = date_of_birth;
-  existingUser["created_at"] = created_at;
-  existingUser["updated_at"] = updated_at;
-  existingUser["is_verified"] = is_verified;
-
-  users.updateOne({ _id: id as unknown as ObjectId }, existingUser);
-  return c.redirect("/users/" + id);
-});
+    users.updateOne({ _id: id as unknown as ObjectId }, {
+        "$set": {
+            user, email, address, date_of_birth, created_at, updated_at, is_verified
+        },
+    });
+    return c.redirect("/users");
+})
 
 export default app;
