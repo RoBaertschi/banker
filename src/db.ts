@@ -21,6 +21,47 @@ export type User = {
 };
 
 //{
+//    _id: '67dc0545207f868abb6360c5',
+//    owners: [ '67dc0545207f868abb6360cb' ],
+//    transactions: [
+//      {
+//        _id: '67dc0545207f868abb6360c6',
+//        type: 'debit',
+//        amount: { '$numberDecimal': '2664.11' },
+//        timestamp: { '$timestamp': '7483862474693804033' },
+//        description: 'Transaction alert: invoice at Schoen Group using card ending ****0928 for an amount of EUR 863.94 on account ***6897.'
+//      },
+//      {
+//        _id: '67dc0545207f868abb6360c7',
+//        type: 'debit',
+//        amount: { '$numberDecimal': '497.25' },
+//        timestamp: { '$timestamp': '7483862474693804033' },
+//        description: 'invoice processed at Kassulke - Von for NGN 730.90, using card ending ****3981. Account: ***0636.'
+//      },
+//      {
+//        _id: '67dc0545207f868abb6360c8',
+//        type: 'debit',
+//        amount: { '$numberDecimal': '431.56' },
+//        timestamp: { '$timestamp': '7483862474693804033' },
+//        description: 'Your withdrawal of MXN 214.74 at Weimann, Rath and Terry was successful. Charged via card ****0020 to account ***8612.'
+//      },
+//      {
+//        _id: '67dc0545207f868abb6360c9',
+//        type: 'credit',
+//        amount: { '$numberDecimal': '1914.63' },
+//        timestamp: { '$timestamp': '7483862474693804033' },
+//        description: 'deposit at Hyatt - Quitzon with a card ending in ****9912 for GYD 181.12 from account ***8445.'
+//      }
+//    ],
+//    number: 502646,
+//    description: 'Tenuis alter contego thesis tutis aperiam virga somniculosus tricesimus adnuo.',
+//    balance: { '$numberDecimal': '7787.99' },
+//    currency: 'ARS',
+//    created_at: { '$timestamp': '7483862474693804033' },
+//    updated_at: { '$timestamp': '7483862474693804033' }
+//  }
+
+//{
 //    _id: "67dc0545207f868abb6360dd",
 //    name: "Mr. Rodney Dare",
 //    email: "Greyson5@yahoo.com",

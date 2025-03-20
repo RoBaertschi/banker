@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { logger } from 'hono/logger';
-import { users } from "./db";
+import { accounts, users } from "./db";
 import BaseDocument from './BaseDocument';
 import TableView from './TableView';
 
@@ -51,6 +51,18 @@ app.get('/users', async (c) => {
             <h1>Banker</h1>
             <p>Build using <a href='https://htmx.org/'>htmx</a>.</p>
             <TableView attributes={{ name: "Name", email: "E-Mail", address: "Address", date_of_birth: "Date of Birth", created_at: "Created At", updated_at: "Updated At", is_verified: "Verified" }} data={allUsers}></TableView>
+        </BaseDocument>
+    );
+});
+
+app.get('/accounts', async (c) => {
+    const allUsers = await accounts.find().toArray();
+    console.log(allUsers)
+    return c.html(
+        <BaseDocument title='Banker'>
+            <h1>Banker</h1>
+            <p>Build using <a href='https://htmx.org/'>htmx</a>.</p>
+            <TableView attributes={{ number: "Number", description: "Description", balance: "Balance", currency: "Currency", created_at: "Created At", updated_at: "Updated At" }} data={allUsers}></TableView>
         </BaseDocument>
     );
 });
