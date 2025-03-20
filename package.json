@@ -5,6 +5,7 @@
     "build": "bun build src/index.tsx --outdir ./build --splitting"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "hono": "^4.7.1",
     "mongodb": "^6.15.0"
   },

@@ -5,7 +5,7 @@ interface Props {
     attributes: {
         [name: string]: string;
     };
-    data: object[];
+    data: { [d: string]: any }[];
     baseUri?: string;
     className: string;
 }
