@@ -149,7 +149,7 @@ app.get("/accounts", async (c) => {
 app.get("/acc-details/:id", async (c) => {
     const id = c.req.param("id");
     const transactions = await accounts.findOne(
-        { _id: new ObjectId(id) },
+        { _id: id as unknown as ObjectId },
         { projection: { transactions: 1 } }
     );
     console.log("Transactions", transactions);
