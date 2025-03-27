@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: banker
+  name: mongodb-deployment
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: "docker.io/mongo"
+        ports:
+        - containerPort: 27017
+          protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: banker
+  name: mongodb-service
+  labels:
+    name: mongodb
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - name: mongo
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

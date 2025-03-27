@@ -15,11 +15,12 @@ spec:
       labels:
         app: banker
     spec:
-      imagePullSecrets:
-      - name: regcred
       containers:
       - name: banker
-        build: ..
+        image: "ghcr.io/robaertschi/banker/banker:latest"
         ports:
         - containerPort: 3000
           protocol: TCP
+        env:
+          - name: DB_HOST
+            value: mongodb-service.banker.svc.cluster.local
