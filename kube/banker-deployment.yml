@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: banker
+  name: banker-deployment
+  labels:
+    app: banker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: banker
+  template:
+    metadata:
+      labels:
+        app: banker
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: banker
+        build: ..
+        ports:
+        - containerPort: 3000
+          protocol: TCP
