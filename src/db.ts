@@ -11,6 +11,24 @@ const db = mongo.db("appDatabase");
 const users = db.collection("Users");
 const accounts = db.collection("Accounts");
 
+export type Account = {
+  _id: string;
+  owners: string[];
+  transactions: {
+    _id: string;
+    type: "credit" | "debit";
+    amount: number;
+    timestamp: Date;
+    description: string;
+  }[];
+  number: number;
+  description: string;
+  balance: number;
+  currency: string;
+  created_at: Date;
+  updated_at: Date;
+};
+
 export type User = {
   _id: string;
   name: string;

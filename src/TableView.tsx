@@ -23,7 +23,7 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
           </>
         )}
       </tr>
-      {data.map((data) => {
+      {data && data.map((data) => {
         const tds = [];
 
         for (let key in attributes) {
@@ -33,7 +33,7 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
           let tdata: any = data[key as keyof typeof data];
           if (typeof tdata === "boolean") {
             tdata = JSON.stringify(tdata);
-          } else if (typeof tdata === "object") {
+          } else if (tdata && typeof tdata === "object") {
             if ("$numberDecimal" in tdata) {
               tdata = tdata.$numberDecimal;
             } else if ("$timestamp" in tdata) {

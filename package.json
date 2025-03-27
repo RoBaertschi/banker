@@ -5,6 +5,7 @@
     "build": "bun build src/index.tsx --outdir ./build --splitting --target=bun"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
     "dayjs": "^1.11.13",
     "hono": "^4.7.1",
     "mongodb": "^6.15.0"

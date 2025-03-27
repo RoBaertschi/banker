@@ -7,6 +7,8 @@ import TableView from "./TableView";
 import { ObjectId } from "mongodb";
 import UserView from "./User";
 import TopElement from "./TopElement";
+import AccountView from "./Account";
+import { faker } from "@faker-js/faker";
 
 const app = new Hono();
 
@@ -131,12 +133,60 @@ app.get("/create-user", async (c) => {
   );
 });
 
+app.get("/create-account", async (c) => {
+  const account = {
+    _id: "",
+    owners: [],
+    transactions: [],
+    number: 0,
+    description: faker.lorem.sentence(),
+    balance: Math.floor(Math.random() * 1000000),
+    currency: faker.finance.currencyCode(),
+    created_at: new Date(),
+    updated_at: new Date(),
+  };
+
+  const ownersList = (await users.find().toArray()).map((user) => ({
+    _id: user._id.toString(),
+    name: user.name,
+  }));
+
+  return c.html(
+    <BaseDocument title="Create Account">
+      <TopElement />
+      <AccountView account={account} ownersList={ownersList} />
+    </BaseDocument>,
+  );
+});
+
+app.post("/create-account", async (c) => {
+  const data = await c.req.formData();
+
+  const description = data.get("description");
+  const balance = data.get("balance");
+  const currency = data.get("currency");
+  const created_at = data.get("created_at");
+  const updated_at = data.get("updated_at");
+  const owners = data.getAll("owners");
+
+  await accounts.insertOne({
+    number: Math.floor(Math.random() * 1000000),
+    owners,
+    description,
+    balance,
+    currency,
+    created_at,
+    updated_at,
+  });
+  return c.redirect("/accounts");
+});
+
 app.post("/create-user", async (c) => {
   const data = await c.req.formData();
 
   const name = data.get("name");
   let email: FormDataEntryValue | undefined = data.get("email") ?? undefined;
-  console.error(email, typeof email, email?.toString().trim() === "")
+  console.error(email, typeof email, email?.toString().trim() === "");
   if (email && email.toString().trim() === "") {
     email = undefined;
   }
@@ -181,6 +231,9 @@ app.get("/accounts", async (c) => {
   return c.html(
     <BaseDocument title="Banker">
       <TopElement />
+      <div>
+        <a href="/create-account">Create Account</a>
+      </div>
       <TableView
         className="accounts"
         attributes={{
@@ -239,8 +292,7 @@ app.delete("/users/:id", async (c) => {
     return c.text("No user found", 404);
   }
   return c.text("", 200);
-}
-);
+});
 
 function notFound404(c: Context) {
   c.status(404);
@@ -253,9 +305,7 @@ function notFound404(c: Context) {
 
 app.get("/users/:id", async (c) => {
   const id = c.req.param("id");
-  const userArray = await users
-    .find({ _id: new ObjectId(id) })
-    .toArray();
+  const userArray = await users.find({ _id: new ObjectId(id) }).toArray();
   if (userArray.length < 1) {
     return notFound404(c);
   }
@@ -309,7 +359,7 @@ app.post("/users", async (c) => {
   }
   const name = data.get("name");
   let email: FormDataEntryValue | undefined = data.get("email") ?? undefined;
-  console.error(email)
+  console.error(email);
   if (email && email.toString().trim() === "") {
     email = undefined;
   }
@@ -319,7 +369,9 @@ app.post("/users", async (c) => {
   const updated_at = data.get("updated_at") ?? undefined;
   const is_verified = Boolean(data.get("is_verified")) ?? undefined;
 
-  const existingUser = await users.findOne({ _id: new ObjectId(id.toString()) });
+  const existingUser = await users.findOne({
+    _id: new ObjectId(id.toString()),
+  });
   if (existingUser === null) {
     return notFound404(c);
   }
