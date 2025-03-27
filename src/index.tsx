@@ -146,7 +146,7 @@ app.post("/create-user", async (c) => {
   const updated_at = data.get("updated_at");
   const is_verified = Boolean(data.get("is_verified"));
 
-  users.insertOne({
+  await users.insertOne({
     name,
     email,
     address,
@@ -201,7 +201,7 @@ app.get("/accounts", async (c) => {
 app.get("/accounts/:id", async (c) => {
   const id = c.req.param("id");
   const transactions = await accounts.findOne(
-    { _id: id as unknown as ObjectId },
+    { _id: new ObjectId(id) },
     { projection: { transactions: 1 } },
   );
 
@@ -225,7 +225,7 @@ app.get("/accounts/:id", async (c) => {
 
 app.delete("/accounts/:id", async (c) => {
   const id = c.req.param("id");
-  const result = await accounts.deleteOne({ _id: id as unknown as ObjectId });
+  const result = await accounts.deleteOne({ _id: new ObjectId(id) });
   if (result.deletedCount === 0) {
     return c.text("No account found", 404);
   }
@@ -234,7 +234,7 @@ app.delete("/accounts/:id", async (c) => {
 
 app.delete("/users/:id", async (c) => {
   const id = c.req.param("id");
-  const result = await users.deleteOne({ _id: id as unknown as ObjectId });
+  const result = await users.deleteOne({ _id: new ObjectId(id) });
   if (result.deletedCount === 0) {
     return c.text("No user found", 404);
   }
@@ -254,7 +254,7 @@ function notFound404(c: Context) {
 app.get("/users/:id", async (c) => {
   const id = c.req.param("id");
   const userArray = await users
-    .find({ _id: id as unknown as ObjectId })
+    .find({ _id: new ObjectId(id) })
     .toArray();
   if (userArray.length < 1) {
     return notFound404(c);
@@ -304,6 +304,9 @@ app.post("/users", async (c) => {
   const data = await c.req.formData();
 
   const id = data.get("_id");
+  if (id === null) {
+    return notFound404(c);
+  }
   const name = data.get("name");
   let email: FormDataEntryValue | undefined = data.get("email") ?? undefined;
   console.error(email)
@@ -316,13 +319,13 @@ app.post("/users", async (c) => {
   const updated_at = data.get("updated_at") ?? undefined;
   const is_verified = Boolean(data.get("is_verified")) ?? undefined;
 
-  const existingUser = await users.findOne({ _id: id as unknown as ObjectId });
+  const existingUser = await users.findOne({ _id: new ObjectId(id.toString()) });
   if (existingUser === null) {
     return notFound404(c);
   }
 
-  users.updateOne(
-    { _id: id as unknown as ObjectId },
+  await users.updateOne(
+    { _id: new ObjectId(id.toString()) },
     {
       $set: {
         name,

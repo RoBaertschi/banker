@@ -1,7 +1,7 @@
 use("appDatabase");
 // Users Collection
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360ca",
+  _id: new ObjectId("67dc0545207f868abb6360ca"),
   name: "Tomas Hills",
   email: "Ibrahim.Oberbrunner60@hotmail.com",
   address: "320 Will Shore",
@@ -12,7 +12,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb63609d", "67dc0545207f868abb6360ac"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360cb",
+  _id: new ObjectId("67dc0545207f868abb6360cb"),
   name: "Mildred Botsford Sr.",
   email: "Loyce_Emard75@gmail.com",
   address: "372 Estell Points",
@@ -27,7 +27,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360cc",
+  _id: new ObjectId("67dc0545207f868abb6360cc"),
   name: "Terrell Marvin-Koss",
   email: "Payton_Daniel@gmail.com",
   address: "995 Bruen Prairie",
@@ -38,7 +38,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb6360a1", "67dc0545207f868abb6360b5"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360cd",
+  _id: new ObjectId("67dc0545207f868abb6360cd"),
   name: "Shelley Leffler",
   email: "Rowena70@hotmail.com",
   address: "1312 Walter Ferry",
@@ -53,7 +53,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360ce",
+  _id: new ObjectId("67dc0545207f868abb6360ce"),
   name: "Craig Dickens DDS",
   email: "Ward.Wunsch@hotmail.com",
   address: "9579 Heloise Trail",
@@ -64,7 +64,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb636080"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360cf",
+  _id: new ObjectId("67dc0545207f868abb6360cf"),
   name: "Angel Feeney",
   email: "Carolanne_Ebert@gmail.com",
   address: "345 Water Street",
@@ -75,7 +75,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb636080", "67dc0545207f868abb6360b5"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d0",
+  _id: new ObjectId("67dc0545207f868abb6360d0"),
   name: "Erin Keebler",
   email: "Fernando26@yahoo.com",
   address: "129 Noel Walk",
@@ -90,7 +90,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d1",
+  _id: new ObjectId("67dc0545207f868abb6360d1"),
   name: "Loren Harris DVM",
   email: "Ana.Crona7@hotmail.com",
   address: "75162 Rosenbaum Mills",
@@ -101,7 +101,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb63608c"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d2",
+  _id: new ObjectId("67dc0545207f868abb6360d2"),
   name: "Bessie Becker",
   email: "Roosevelt2@yahoo.com",
   address: "6728 Cow Lane",
@@ -112,7 +112,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb636099"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d3",
+  _id: new ObjectId("67dc0545207f868abb6360d3"),
   name: "Timothy Nader",
   email: "Jadyn_Kautzer67@gmail.com",
   address: "3208 Kertzmann Ridges",
@@ -127,7 +127,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d4",
+  _id: new ObjectId("67dc0545207f868abb6360d4"),
   name: "Sherman Deckow",
   email: "Corbin.Koelpin@yahoo.com",
   address: "8559 Queenie Rapid",
@@ -138,7 +138,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb6360a5"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d5",
+  _id: new ObjectId("67dc0545207f868abb6360d5"),
   name: "Naomi Wolf",
   email: "Queenie.Rempel3@yahoo.com",
   address: "937 Mann Stream",
@@ -153,7 +153,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d6",
+  _id: new ObjectId("67dc0545207f868abb6360d6"),
   name: "Dr. Anne Swift",
   email: "Margaret.Dibbert78@gmail.com",
   address: "1692 Chaya Expressway",
@@ -168,7 +168,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d7",
+  _id: new ObjectId("67dc0545207f868abb6360d7"),
   name: "Allen Dooley",
   email: "Peggie_Kshlerin76@hotmail.com",
   address: "5646 Main Street W",
@@ -179,7 +179,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb6360c2"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d8",
+  _id: new ObjectId("67dc0545207f868abb6360d8"),
   name: "Alberta Waters",
   email: "Jimmy1@gmail.com",
   address: "366 South Drive",
@@ -194,7 +194,7 @@ db.Users.insertOne({
   ],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360d9",
+  _id: new ObjectId("67dc0545207f868abb6360d9"),
   name: "Lucia Hettinger",
   email: "Petra53@hotmail.com",
   address: "86292 Hackett Shoals",
@@ -205,7 +205,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb636094", "67dc0545207f868abb63609d"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360da",
+  _id: new ObjectId("67dc0545207f868abb6360da"),
   name: "Doug Pouros",
   email: "Filomena_Balistreri@hotmail.com",
   address: "6712 Nat Fort",
@@ -216,7 +216,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb636091", "67dc0545207f868abb63608c"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360db",
+  _id: new ObjectId("67dc0545207f868abb6360db"),
   name: "Felix Doyle",
   email: "Gianni_Franecki-Pacocha@hotmail.com",
   address: "968 Aufderhar Center",
@@ -227,7 +227,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb6360c2"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360dc",
+  _id: new ObjectId("67dc0545207f868abb6360dc"),
   name: "Mr. Gilbert Heaney",
   email: "Kristin.Gusikowski48@gmail.com",
   address: "5811 Mraz Spring",
@@ -238,7 +238,7 @@ db.Users.insertOne({
   accounts: ["67dc0545207f868abb636088", "67dc0545207f868abb6360ac"],
 });
 db.Users.insertOne({
-  _id: "67dc0545207f868abb6360dd",
+  _id: new ObjectId("67dc0545207f868abb6360dd"),
   name: "Mr. Rodney Dare",
   email: "Greyson5@yahoo.com",
   address: "544 N Pine Street",
@@ -255,11 +255,11 @@ db.Users.insertOne({
 
 // Accounts Collection
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb63607d",
+  _id: new ObjectId("67dc0545207f868abb63607d"),
   owners: ["67dc0545207f868abb6360d5"],
   transactions: [
     {
-      _id: "67dc0545207f868abb63607e",
+      _id: new ObjectId("67dc0545207f868abb63607e"),
       type: "debit",
       amount: {
         $numberDecimal: "4912.29",
@@ -271,7 +271,7 @@ db.Accounts.insertOne({
         "invoice processed at Kertzmann, Labadie and Smith for GEL 942.77, using card ending ****1152. Account: ***4250.",
     },
     {
-      _id: "67dc0545207f868abb63607f",
+      _id: new ObjectId("67dc0545207f868abb63607f"),
       type: "debit",
       amount: {
         $numberDecimal: "4495.25",
@@ -297,11 +297,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb636080",
+  _id: new ObjectId("67dc0545207f868abb636080"),
   owners: ["67dc0545207f868abb6360ce", "67dc0545207f868abb6360cf"],
   transactions: [
     {
-      _id: "67dc0545207f868abb636081",
+      _id: new ObjectId("67dc0545207f868abb636081"),
       type: "credit",
       amount: {
         $numberDecimal: "4836.77",
@@ -313,7 +313,7 @@ db.Accounts.insertOne({
         "Payment of UZS 472.33 for payment at Kovacek, Jerde and Champlin, processed with card ending ****8327 linked to account ***8595.",
     },
     {
-      _id: "67dc0545207f868abb636082",
+      _id: new ObjectId("67dc0545207f868abb636082"),
       type: "debit",
       amount: {
         $numberDecimal: "1890.43",
@@ -325,7 +325,7 @@ db.Accounts.insertOne({
         "A invoice of USD 860.81 occurred at Altenwerth, Rowe and McDermott using a card ending in ****7358 for account ***7836.",
     },
     {
-      _id: "67dc0545207f868abb636083",
+      _id: new ObjectId("67dc0545207f868abb636083"),
       type: "debit",
       amount: {
         $numberDecimal: "837.43",
@@ -337,7 +337,7 @@ db.Accounts.insertOne({
         "deposit confirmed at Hauck - Reynolds for TMT 434.07, card ending in ****8794 associated with account ***2953.",
     },
     {
-      _id: "67dc0545207f868abb636084",
+      _id: new ObjectId("67dc0545207f868abb636084"),
       type: "credit",
       amount: {
         $numberDecimal: "237.02",
@@ -349,7 +349,7 @@ db.Accounts.insertOne({
         "withdrawal processed at McCullough Inc for JMD 877.61, using card ending ****6355. Account: ***5971.",
     },
     {
-      _id: "67dc0545207f868abb636085",
+      _id: new ObjectId("67dc0545207f868abb636085"),
       type: "credit",
       amount: {
         $numberDecimal: "1773.40",
@@ -375,11 +375,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb636086",
+  _id: new ObjectId("67dc0545207f868abb636086"),
   owners: [],
   transactions: [
     {
-      _id: "67dc0545207f868abb636087",
+      _id: new ObjectId("67dc0545207f868abb636087"),
       type: "credit",
       amount: {
         $numberDecimal: "4071.06",
@@ -406,7 +406,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb636088",
+  _id: new ObjectId("67dc0545207f868abb636088"),
   owners: [
     "67dc0545207f868abb6360cd",
     "67dc0545207f868abb6360d5",
@@ -414,7 +414,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb636089",
+      _id: new ObjectId("67dc0545207f868abb636089"),
       type: "credit",
       amount: {
         $numberDecimal: "3269.49",
@@ -426,7 +426,7 @@ db.Accounts.insertOne({
         "A payment for GBP 858.35 was made at Steuber - Cronin via card ending ****9742 on account ***7413.",
     },
     {
-      _id: "67dc0545207f868abb63608a",
+      _id: new ObjectId("67dc0545207f868abb63608a"),
       type: "debit",
       amount: {
         $numberDecimal: "2293.42",
@@ -438,7 +438,7 @@ db.Accounts.insertOne({
         "payment processed at Dickens - Cruickshank for XOF 875.94, using card ending ****4086. Account: ***0332.",
     },
     {
-      _id: "67dc0545207f868abb63608b",
+      _id: new ObjectId("67dc0545207f868abb63608b"),
       type: "debit",
       amount: {
         $numberDecimal: "3004.37",
@@ -464,7 +464,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb63608c",
+  _id: new ObjectId("67dc0545207f868abb63608c"),
   owners: [
     "67dc0545207f868abb6360d0",
     "67dc0545207f868abb6360d1",
@@ -473,7 +473,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb63608d",
+      _id: new ObjectId("67dc0545207f868abb63608d"),
       type: "credit",
       amount: {
         $numberDecimal: "941.00",
@@ -485,7 +485,7 @@ db.Accounts.insertOne({
         "Payment of ANG 418.21 for withdrawal at Effertz - Leuschke, processed with card ending ****1709 linked to account ***9196.",
     },
     {
-      _id: "67dc0545207f868abb63608e",
+      _id: new ObjectId("67dc0545207f868abb63608e"),
       type: "credit",
       amount: {
         $numberDecimal: "3563.35",
@@ -497,7 +497,7 @@ db.Accounts.insertOne({
         "A withdrawal for BWP 559.80 was made at Rodriguez and Sons via card ending ****2242 on account ***0995.",
     },
     {
-      _id: "67dc0545207f868abb63608f",
+      _id: new ObjectId("67dc0545207f868abb63608f"),
       type: "debit",
       amount: {
         $numberDecimal: "356.33",
@@ -509,7 +509,7 @@ db.Accounts.insertOne({
         "Payment of GIP 178.63 for invoice at Bartell, Murphy and Spinka, processed with card ending ****8985 linked to account ***5778.",
     },
     {
-      _id: "67dc0545207f868abb636090",
+      _id: new ObjectId("67dc0545207f868abb636090"),
       type: "debit",
       amount: {
         $numberDecimal: "3878.29",
@@ -535,11 +535,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb636091",
+  _id: new ObjectId("67dc0545207f868abb636091"),
   owners: ["67dc0545207f868abb6360da"],
   transactions: [
     {
-      _id: "67dc0545207f868abb636092",
+      _id: new ObjectId("67dc0545207f868abb636092"),
       type: "debit",
       amount: {
         $numberDecimal: "916.71",
@@ -551,7 +551,7 @@ db.Accounts.insertOne({
         "deposit processed at Murray - Johnson for INR 308.43, using card ending ****7329. Account: ***0587.",
     },
     {
-      _id: "67dc0545207f868abb636093",
+      _id: new ObjectId("67dc0545207f868abb636093"),
       type: "credit",
       amount: {
         $numberDecimal: "3902.48",
@@ -577,7 +577,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb636094",
+  _id: new ObjectId("67dc0545207f868abb636094"),
   owners: [
     "67dc0545207f868abb6360d0",
     "67dc0545207f868abb6360d6",
@@ -585,7 +585,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb636095",
+      _id: new ObjectId("67dc0545207f868abb636095"),
       type: "credit",
       amount: {
         $numberDecimal: "4689.49",
@@ -597,7 +597,7 @@ db.Accounts.insertOne({
         "A invoice of BSD 514.14 occurred at Waters, Waelchi and Ward using a card ending in ****4132 for account ***1915.",
     },
     {
-      _id: "67dc0545207f868abb636096",
+      _id: new ObjectId("67dc0545207f868abb636096"),
       type: "debit",
       amount: {
         $numberDecimal: "2742.91",
@@ -609,7 +609,7 @@ db.Accounts.insertOne({
         "payment transaction at Prohaska, Lowe and Medhurst using card ending with ****0807 for MRU 54.36 in account ***1662.",
     },
     {
-      _id: "67dc0545207f868abb636097",
+      _id: new ObjectId("67dc0545207f868abb636097"),
       type: "credit",
       amount: {
         $numberDecimal: "1938.39",
@@ -621,7 +621,7 @@ db.Accounts.insertOne({
         "Transaction alert: deposit at Weber LLC using card ending ****8764 for an amount of ALL 11.11 on account ***9949.",
     },
     {
-      _id: "67dc0545207f868abb636098",
+      _id: new ObjectId("67dc0545207f868abb636098"),
       type: "debit",
       amount: {
         $numberDecimal: "2445.17",
@@ -647,11 +647,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb636099",
+  _id: new ObjectId("67dc0545207f868abb636099"),
   owners: ["67dc0545207f868abb6360d2", "67dc0545207f868abb6360d6"],
   transactions: [
     {
-      _id: "67dc0545207f868abb63609a",
+      _id: new ObjectId("67dc0545207f868abb63609a"),
       type: "credit",
       amount: {
         $numberDecimal: "3205.15",
@@ -663,7 +663,7 @@ db.Accounts.insertOne({
         "invoice confirmed at Koch, Gorczany and Stoltenberg for PGK 89.87, card ending in ****7514 associated with account ***9876.",
     },
     {
-      _id: "67dc0545207f868abb63609b",
+      _id: new ObjectId("67dc0545207f868abb63609b"),
       type: "credit",
       amount: {
         $numberDecimal: "3952.97",
@@ -675,7 +675,7 @@ db.Accounts.insertOne({
         "invoice transaction at Cassin, Toy and Bogisich using card ending with ****7919 for BBD 808.12 in account ***4314.",
     },
     {
-      _id: "67dc0545207f868abb63609c",
+      _id: new ObjectId("67dc0545207f868abb63609c"),
       type: "debit",
       amount: {
         $numberDecimal: "3577.72",
@@ -702,7 +702,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb63609d",
+  _id: new ObjectId("67dc0545207f868abb63609d"),
   owners: [
     "67dc0545207f868abb6360ca",
     "67dc0545207f868abb6360cd",
@@ -710,7 +710,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb63609e",
+      _id: new ObjectId("67dc0545207f868abb63609e"),
       type: "debit",
       amount: {
         $numberDecimal: "3612.88",
@@ -722,7 +722,7 @@ db.Accounts.insertOne({
         "invoice transaction at Mosciski - Zboncak using card ending with ****7490 for LRD 885.41 in account ***5815.",
     },
     {
-      _id: "67dc0545207f868abb63609f",
+      _id: new ObjectId("67dc0545207f868abb63609f"),
       type: "credit",
       amount: {
         $numberDecimal: "3343.40",
@@ -734,7 +734,7 @@ db.Accounts.insertOne({
         "Your deposit of HTG 200.06 at Mante and Sons was successful. Charged via card ****4417 to account ***0485.",
     },
     {
-      _id: "67dc0545207f868abb6360a0",
+      _id: new ObjectId("67dc0545207f868abb6360a0"),
       type: "credit",
       amount: {
         $numberDecimal: "4087.56",
@@ -760,7 +760,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360a1",
+  _id: new ObjectId("67dc0545207f868abb6360a1"),
   owners: [
     "67dc0545207f868abb6360cc",
     "67dc0545207f868abb6360d8",
@@ -768,7 +768,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360a2",
+      _id: new ObjectId("67dc0545207f868abb6360a2"),
       type: "credit",
       amount: {
         $numberDecimal: "455.79",
@@ -780,7 +780,7 @@ db.Accounts.insertOne({
         "A payment for UAH 670.62 was made at Abshire Group via card ending ****4819 on account ***3115.",
     },
     {
-      _id: "67dc0545207f868abb6360a3",
+      _id: new ObjectId("67dc0545207f868abb6360a3"),
       type: "debit",
       amount: {
         $numberDecimal: "4324.82",
@@ -792,7 +792,7 @@ db.Accounts.insertOne({
         "deposit transaction at Herzog - Nolan using card ending with ****8597 for KZT 584.26 in account ***2593.",
     },
     {
-      _id: "67dc0545207f868abb6360a4",
+      _id: new ObjectId("67dc0545207f868abb6360a4"),
       type: "credit",
       amount: {
         $numberDecimal: "533.19",
@@ -818,7 +818,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360a5",
+  _id: new ObjectId("67dc0545207f868abb6360a5"),
   owners: [
     "67dc0545207f868abb6360cb",
     "67dc0545207f868abb6360d3",
@@ -826,7 +826,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360a6",
+      _id: new ObjectId("67dc0545207f868abb6360a6"),
       type: "debit",
       amount: {
         $numberDecimal: "3621.91",
@@ -838,7 +838,7 @@ db.Accounts.insertOne({
         "withdrawal of SCR 225.75 at Waelchi - Hammes charged to account ending in 2201 using card ending in ****0533.",
     },
     {
-      _id: "67dc0545207f868abb6360a7",
+      _id: new ObjectId("67dc0545207f868abb6360a7"),
       type: "credit",
       amount: {
         $numberDecimal: "996.77",
@@ -864,11 +864,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360a8",
+  _id: new ObjectId("67dc0545207f868abb6360a8"),
   owners: [],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360a9",
+      _id: new ObjectId("67dc0545207f868abb6360a9"),
       type: "debit",
       amount: {
         $numberDecimal: "516.04",
@@ -894,7 +894,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360aa",
+  _id: new ObjectId("67dc0545207f868abb6360aa"),
   owners: [
     "67dc0545207f868abb6360cb",
     "67dc0545207f868abb6360d5",
@@ -902,7 +902,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360ab",
+      _id: new ObjectId("67dc0545207f868abb6360ab"),
       type: "debit",
       amount: {
         $numberDecimal: "4772.04",
@@ -928,7 +928,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360ac",
+  _id: new ObjectId("67dc0545207f868abb6360ac"),
   owners: [
     "67dc0545207f868abb6360ca",
     "67dc0545207f868abb6360d8",
@@ -937,7 +937,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360ad",
+      _id: new ObjectId("67dc0545207f868abb6360ad"),
       type: "debit",
       amount: {
         $numberDecimal: "156.10",
@@ -949,7 +949,7 @@ db.Accounts.insertOne({
         "payment confirmed at Rutherford, Heller and Denesik for MKD 572.60, card ending in ****6506 associated with account ***4498.",
     },
     {
-      _id: "67dc0545207f868abb6360ae",
+      _id: new ObjectId("67dc0545207f868abb6360ae"),
       type: "debit",
       amount: {
         $numberDecimal: "3201.37",
@@ -961,7 +961,7 @@ db.Accounts.insertOne({
         "withdrawal transaction at Johns Group using card ending with ****4704 for FJD 348.56 in account ***6653.",
     },
     {
-      _id: "67dc0545207f868abb6360af",
+      _id: new ObjectId("67dc0545207f868abb6360af"),
       type: "debit",
       amount: {
         $numberDecimal: "3712.90",
@@ -973,7 +973,7 @@ db.Accounts.insertOne({
         "Transaction alert: withdrawal at Moen Inc using card ending ****6833 for an amount of SYP 404.74 on account ***5779.",
     },
     {
-      _id: "67dc0545207f868abb6360b0",
+      _id: new ObjectId("67dc0545207f868abb6360b0"),
       type: "credit",
       amount: {
         $numberDecimal: "2168.01",
@@ -985,7 +985,7 @@ db.Accounts.insertOne({
         "withdrawal of THB 390.37 at Runolfsson - Brakus charged to account ending in 1688 using card ending in ****9445.",
     },
     {
-      _id: "67dc0545207f868abb6360b1",
+      _id: new ObjectId("67dc0545207f868abb6360b1"),
       type: "debit",
       amount: {
         $numberDecimal: "3182.48",
@@ -1012,11 +1012,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360b2",
+  _id: new ObjectId("67dc0545207f868abb6360b2"),
   owners: ["67dc0545207f868abb6360d3"],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360b3",
+      _id: new ObjectId("67dc0545207f868abb6360b3"),
       type: "debit",
       amount: {
         $numberDecimal: "1310.38",
@@ -1028,7 +1028,7 @@ db.Accounts.insertOne({
         "withdrawal confirmed at Satterfield - Gleason for GBP 534.43, card ending in ****5499 associated with account ***8463.",
     },
     {
-      _id: "67dc0545207f868abb6360b4",
+      _id: new ObjectId("67dc0545207f868abb6360b4"),
       type: "debit",
       amount: {
         $numberDecimal: "4923.95",
@@ -1055,11 +1055,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360b5",
+  _id: new ObjectId("67dc0545207f868abb6360b5"),
   owners: ["67dc0545207f868abb6360cc", "67dc0545207f868abb6360cf"],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360b6",
+      _id: new ObjectId("67dc0545207f868abb6360b6"),
       type: "credit",
       amount: {
         $numberDecimal: "2563.61",
@@ -1071,7 +1071,7 @@ db.Accounts.insertOne({
         "withdrawal confirmed at Hammes - Sauer for UGX 633.35, card ending in ****7512 associated with account ***6225.",
     },
     {
-      _id: "67dc0545207f868abb6360b7",
+      _id: new ObjectId("67dc0545207f868abb6360b7"),
       type: "credit",
       amount: {
         $numberDecimal: "4175.39",
@@ -1083,7 +1083,7 @@ db.Accounts.insertOne({
         "Payment of IRR 328.30 for deposit at Hayes - Lang, processed with card ending ****2443 linked to account ***0988.",
     },
     {
-      _id: "67dc0545207f868abb6360b8",
+      _id: new ObjectId("67dc0545207f868abb6360b8"),
       type: "credit",
       amount: {
         $numberDecimal: "2059.33",
@@ -1109,11 +1109,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360b9",
+  _id: new ObjectId("67dc0545207f868abb6360b9"),
   owners: [],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360ba",
+      _id: new ObjectId("67dc0545207f868abb6360ba"),
       type: "credit",
       amount: {
         $numberDecimal: "3215.93",
@@ -1125,7 +1125,7 @@ db.Accounts.insertOne({
         "Transaction alert: invoice at Konopelski - Robel using card ending ****3132 for an amount of SGD 933.12 on account ***1256.",
     },
     {
-      _id: "67dc0545207f868abb6360bb",
+      _id: new ObjectId("67dc0545207f868abb6360bb"),
       type: "debit",
       amount: {
         $numberDecimal: "3099.25",
@@ -1137,7 +1137,7 @@ db.Accounts.insertOne({
         "withdrawal of SCR 145.60 at Ortiz, Bayer and Rice charged to account ending in 4200 using card ending in ****6490.",
     },
     {
-      _id: "67dc0545207f868abb6360bc",
+      _id: new ObjectId("67dc0545207f868abb6360bc"),
       type: "credit",
       amount: {
         $numberDecimal: "3889.06",
@@ -1149,7 +1149,7 @@ db.Accounts.insertOne({
         "Transaction alert: withdrawal at Schmitt, Bradtke and Torp using card ending ****4522 for an amount of SAR 303.26 on account ***9473.",
     },
     {
-      _id: "67dc0545207f868abb6360bd",
+      _id: new ObjectId("67dc0545207f868abb6360bd"),
       type: "debit",
       amount: {
         $numberDecimal: "2864.37",
@@ -1175,7 +1175,7 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360be",
+  _id: new ObjectId("67dc0545207f868abb6360be"),
   owners: [
     "67dc0545207f868abb6360cd",
     "67dc0545207f868abb6360d0",
@@ -1184,7 +1184,7 @@ db.Accounts.insertOne({
   ],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360bf",
+      _id: new ObjectId("67dc0545207f868abb6360bf"),
       type: "debit",
       amount: {
         $numberDecimal: "861.27",
@@ -1196,7 +1196,7 @@ db.Accounts.insertOne({
         "withdrawal of LKR 634.19 at Yundt Inc charged to account ending in 7220 using card ending in ****5870.",
     },
     {
-      _id: "67dc0545207f868abb6360c0",
+      _id: new ObjectId("67dc0545207f868abb6360c0"),
       type: "credit",
       amount: {
         $numberDecimal: "498.25",
@@ -1208,7 +1208,7 @@ db.Accounts.insertOne({
         "Your withdrawal of TRY 545.04 at Kuhic, Rowe and Rohan was successful. Charged via card ****6877 to account ***6289.",
     },
     {
-      _id: "67dc0545207f868abb6360c1",
+      _id: new ObjectId("67dc0545207f868abb6360c1"),
       type: "credit",
       amount: {
         $numberDecimal: "4994.45",
@@ -1234,11 +1234,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360c2",
+  _id: new ObjectId("67dc0545207f868abb6360c2"),
   owners: ["67dc0545207f868abb6360d7", "67dc0545207f868abb6360db"],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360c3",
+      _id: new ObjectId("67dc0545207f868abb6360c3"),
       type: "credit",
       amount: {
         $numberDecimal: "1201.03",
@@ -1250,7 +1250,7 @@ db.Accounts.insertOne({
         "Your withdrawal of MDL 910.69 at Schinner - Schuster was successful. Charged via card ****5013 to account ***7591.",
     },
     {
-      _id: "67dc0545207f868abb6360c4",
+      _id: new ObjectId("67dc0545207f868abb6360c4"),
       type: "credit",
       amount: {
         $numberDecimal: "2782.41",
@@ -1276,11 +1276,11 @@ db.Accounts.insertOne({
   },
 });
 db.Accounts.insertOne({
-  _id: "67dc0545207f868abb6360c5",
+  _id: new ObjectId("67dc0545207f868abb6360c5"),
   owners: ["67dc0545207f868abb6360cb"],
   transactions: [
     {
-      _id: "67dc0545207f868abb6360c6",
+      _id: new ObjectId("67dc0545207f868abb6360c6"),
       type: "debit",
       amount: {
         $numberDecimal: "2664.11",
@@ -1292,7 +1292,7 @@ db.Accounts.insertOne({
         "Transaction alert: invoice at Schoen Group using card ending ****0928 for an amount of EUR 863.94 on account ***6897.",
     },
     {
-      _id: "67dc0545207f868abb6360c7",
+      _id: new ObjectId("67dc0545207f868abb6360c7"),
       type: "debit",
       amount: {
         $numberDecimal: "497.25",
@@ -1304,7 +1304,7 @@ db.Accounts.insertOne({
         "invoice processed at Kassulke - Von for NGN 730.90, using card ending ****3981. Account: ***0636.",
     },
     {
-      _id: "67dc0545207f868abb6360c8",
+      _id: new ObjectId("67dc0545207f868abb6360c8"),
       type: "debit",
       amount: {
         $numberDecimal: "431.56",
@@ -1316,7 +1316,7 @@ db.Accounts.insertOne({
         "Your withdrawal of MXN 214.74 at Weimann, Rath and Terry was successful. Charged via card ****0020 to account ***8612.",
     },
     {
-      _id: "67dc0545207f868abb6360c9",
+      _id: new ObjectId("67dc0545207f868abb6360c9"),
       type: "credit",
       amount: {
         $numberDecimal: "1914.63",
