@@ -14,228 +14,127 @@ app.use(logger());
 app.use("/static/*", serveStatic({ root: "./" }));
 
 app.get("/", async (c) => {
-  return c.html(
-    <BaseDocument title="Banker">
-      <main>
-        <ul>
-          <li>
-            <a href="/users">Users</a>
-          </li>
-          <li>
-            <a href="/accounts">Accounts</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-        </ul>
-      </main>
-    </BaseDocument>
-  );
+    return c.html(
+        <BaseDocument title="Banker">
+            <main>
+                <ul>
+                    <li>
+                        <a href="/users">Users</a>
+                    </li>
+                    <li>
+                        <a href="/accounts">Accounts</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                </ul>
+            </main>
+        </BaseDocument>
+    );
 });
 
 async function accountsFilter(c: Context) {
-  const filter = c.req.query("filter");
-  const findFilter: { description?: RegExp | undefined } = {};
-  if (filter) {
-    findFilter.description = new RegExp(filter);
-  }
-  const allUsers = await accounts.find(findFilter).toArray();
-  return allUsers;
+    const filter = c.req.query("filter");
+    const findFilter: { description?: RegExp | undefined } = {};
+    if (filter) {
+        findFilter.description = new RegExp(filter);
+    }
+    const allUsers = await accounts.find(findFilter).toArray();
+    return allUsers;
 }
 
 async function usersFilter(c: Context) {
-  const filter = c.req.query("filter");
-  const findFilter: { name?: RegExp | undefined } = {};
-  if (filter) {
-    findFilter.name = new RegExp(filter);
-  }
-  const allUsers = await users.find(findFilter).toArray();
-  return allUsers;
+    const filter = c.req.query("filter");
+    const findFilter: { name?: RegExp | undefined } = {};
+    if (filter) {
+        findFilter.name = new RegExp(filter);
+    }
+    const allUsers = await users.find(findFilter).toArray();
+    return allUsers;
 }
 
 app.get("/users-search", async (c) => {
-  const allUsers = await usersFilter(c);
+    const allUsers = await usersFilter(c);
 
-  return c.html(
-    <TableView
-      className="users"
-      attributes={{
-        name: "Name",
-        email: "E-Mail",
-        address: "Address",
-        date_of_birth: "Date of Birth",
-        created_at: "Created At",
-        updated_at: "Updated At",
-        is_verified: "Verified",
-      }}
-      data={allUsers}
-      baseUri="/users"
-    ></TableView>
-  );
+    return c.html(
+        <TableView
+            className="users"
+            attributes={{
+                name: "Name",
+                email: "E-Mail",
+                address: "Address",
+                date_of_birth: "Date of Birth",
+                created_at: "Created At",
+                updated_at: "Updated At",
+                is_verified: "Verified",
+            }}
+            data={allUsers}
+            baseUri="/users"
+        ></TableView>
+    );
 });
 
 app.get("/users", async (c) => {
-  const allUsers = await usersFilter(c);
+    const allUsers = await usersFilter(c);
 
-  return c.html(
-    <BaseDocument title="Banker">
-      <TopElement />
-      <input
-        type={"search"}
-        name="filter"
-        placeholder="Search for Users..."
-        hx-get="/users-search"
-        hx-trigger="input changed delay:500ms, keyup[key=='Enter'], load"
-        hx-target=".users"
-        hx-params="*"
-      />
-      <TableView
-        className="users"
-        attributes={{
-          name: "Name",
-          email: "E-Mail",
-          address: "Address",
-          date_of_birth: "Date of Birth",
-          created_at: "Created At",
-          updated_at: "Updated At",
-          is_verified: "Verified",
-        }}
-        data={allUsers}
-        baseUri="/users"
-      ></TableView>
-    </BaseDocument>
-  );
-});
-
-app.get("/accounts-search", async (c) => {
-  const allUsers = await accountsFilter(c);
-  return c.html(
-    <TableView
-      className="accounts"
-      attributes={{
-        number: "Number",
-        description: "Description",
-        balance: "Balance",
-        currency: "Currency",
-        created_at: "Created At",
-        updated_at: "Updated At",
-      }}
-      data={allUsers}
-    ></TableView>
-  );
-});
-
-app.get("/accounts", async (c) => {
-  const allUsers = await accounts.find().toArray();
-  return c.html(
-    <BaseDocument title="Banker">
-      <TopElement />
-      <TableView
-        className="accounts"
-        attributes={{
-          number: "Number",
-          description: "Description",
-          balance: "Balance",
-          currency: "Currency",
-          created_at: "Created At",
-          updated_at: "Updated At",
-        }}
-        data={allUsers}
-        baseUri="/acc-details"
-      ></TableView>
-    </BaseDocument>
-  );
-});
-
-app.get("/acc-details/:id", async (c) => {
-  const id = c.req.param("id");
-  const transactions = await accounts.findOne(
-    { _id: id as unknown as ObjectId },
-    { projection: { transactions: 1 } }
-  );
-  console.log("Transactions", transactions);
-
-  if (!transactions) {
-    return c.text("No transactions found", 404);
-  }
-
-  return c.html(
-    <TableView
-      className="accounts"
-      attributes={{
-        type: "Type",
-        amount: "Amount",
-        timestamp: "Timestamp",
-        description: "Description",
-      }}
-      data={transactions.transactions}
-    ></TableView>
-  );
-});
-
-function notFound404(c: Context) {
-  c.status(404);
-  return c.html(
-    <BaseDocument title="404 Not Found">
-      Could not find requested user
-    </BaseDocument>
-  );
-}
-
-app.get("/users/:id", async (c) => {
-  const id = c.req.param("id");
-  const userArray = await users
-    .find({ _id: id as unknown as ObjectId })
-    .toArray();
-  if (userArray.length < 1) {
-    return notFound404(c);
-  }
-
-  const user = userArray[0] as unknown as User;
-
-  return c.html(<UserView user={user}></UserView>);
-});
-
-app.get("/about", (c) => {
-  const ricks = [];
-  for (let i = 0; i < 100; i++) {
-    ricks.push(
-      <img
-        src="/static/rickroll-roll.gif"
-        alt="Rickroll"
-        style={{
-          width: "100px",
-          height: "100px",
-          position: "absolute",
-          top: `${Math.random() * 100}vh`,
-          left: `${Math.random() * 100}vw`,
-        }}
-      />
+    return c.html(
+        <BaseDocument title="Banker">
+            <TopElement />
+            <div>
+                <a href="/create-user">Create User</a>
+            </div>
+            <input
+                type={"search"}
+                name="filter"
+                placeholder="Search for Users..."
+                hx-get="/users-search"
+                hx-trigger="input changed delay:500ms, keyup[key=='Enter'], load"
+                hx-target=".users"
+                hx-params="*"
+            />
+            <TableView
+                className="users"
+                attributes={{
+                    name: "Name",
+                    email: "E-Mail",
+                    address: "Address",
+                    date_of_birth: "Date of Birth",
+                    created_at: "Created At",
+                    updated_at: "Updated At",
+                    is_verified: "Verified",
+                }}
+                data={allUsers}
+                baseUri="/users"
+            ></TableView>
+        </BaseDocument>
     );
-  }
-
-  return c.html(
-    <BaseDocument title="About">
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {ricks}
-      </div>
-    </BaseDocument>
-  );
 });
 
-app.post('/users', async (c) => {
+app.get("/create-user", async (c) => {
+    const user: User = {
+        _id: "",
+        name: "",
+        email: "",
+        address: "",
+        date_of_birth: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
+        is_verified: false,
+        accounts: []
+    };
+
+    return c.html(
+        <BaseDocument title="Create User">
+            <TopElement />
+            <UserView user={user} />
+        </BaseDocument>
+    )
+});
+
+app.post('/create-user', async (c) => {
     const data = await c.req.formData();
 
-    const id = data.get("_id");
-    const user = data.get("user");
+    const name = data.get("name");
     const email = data.get("email");
     const address = data.get("address");
     const date_of_birth = data.get("date_of_birth");
@@ -243,14 +142,155 @@ app.post('/users', async (c) => {
     const updated_at = data.get("updated_at");
     const is_verified = Boolean(data.get("is_verified"));
 
-  const existingUser = await users.findOne({ _id: id as unknown as ObjectId });
-  if (existingUser === null) {
-    return notFound404(c);
-  }
+    users.insertOne({
+        name, email, address, date_of_birth, created_at, updated_at, is_verified
+    });
+    return c.redirect("/users");
+});
+
+app.get("/accounts-search", async (c) => {
+    const allUsers = await accountsFilter(c);
+    return c.html(
+        <TableView
+            className="accounts"
+            attributes={{
+                number: "Number",
+                description: "Description",
+                balance: "Balance",
+                currency: "Currency",
+                created_at: "Created At",
+                updated_at: "Updated At",
+            }}
+            data={allUsers}
+        ></TableView>
+    );
+});
+
+app.get("/accounts", async (c) => {
+    const allUsers = await accounts.find().toArray();
+    return c.html(
+        <BaseDocument title="Banker">
+            <TopElement />
+            <TableView
+                className="accounts"
+                attributes={{
+                    number: "Number",
+                    description: "Description",
+                    balance: "Balance",
+                    currency: "Currency",
+                    created_at: "Created At",
+                    updated_at: "Updated At",
+                }}
+                data={allUsers}
+                baseUri="/acc-details"
+            ></TableView>
+        </BaseDocument>
+    );
+});
+
+app.get("/acc-details/:id", async (c) => {
+    const id = c.req.param("id");
+    const transactions = await accounts.findOne(
+        { _id: id as unknown as ObjectId },
+        { projection: { transactions: 1 } }
+    );
+
+    if (!transactions) {
+        return c.text("No transactions found", 404);
+    }
+
+    return c.html(
+        <TableView
+            className="accounts"
+            attributes={{
+                type: "Type",
+                amount: "Amount",
+                timestamp: "Timestamp",
+                description: "Description",
+            }}
+            data={transactions.transactions}
+        ></TableView>
+    );
+});
+
+function notFound404(c: Context) {
+    c.status(404);
+    return c.html(
+        <BaseDocument title="404 Not Found">
+            Could not find requested user
+        </BaseDocument>
+    );
+}
+
+app.get("/users/:id", async (c) => {
+    const id = c.req.param("id");
+    const userArray = await users
+        .find({ _id: id as unknown as ObjectId })
+        .toArray();
+    if (userArray.length < 1) {
+        return notFound404(c);
+    }
+
+    const user = userArray[0] as unknown as User;
+
+    return c.html(<UserView user={user}></UserView>);
+});
+
+app.get("/about", (c) => {
+    const ricks = [];
+    for (let i = 0; i < 100; i++) {
+        ricks.push(
+            <img
+                src="/static/rickroll-roll.gif"
+                alt="Rickroll"
+                style={{
+                    width: "100px",
+                    height: "100px",
+                    position: "absolute",
+                    top: `${Math.random() * 100}vh`,
+                    left: `${Math.random() * 100}vw`,
+                }}
+            />
+        );
+    }
+
+    return c.html(
+        <BaseDocument title="About">
+            <div
+                style={{
+                    width: "100vw",
+                    height: "100vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
+                {ricks}
+            </div>
+        </BaseDocument>
+    );
+});
+
+app.post('/users', async (c) => {
+    const data = await c.req.formData();
+
+    const id = data.get("_id");
+    const name = data.get("name");
+    const email = data.get("email");
+    const address = data.get("address");
+    const date_of_birth = data.get("date_of_birth");
+    const created_at = data.get("created_at");
+    const updated_at = data.get("updated_at");
+    const is_verified = Boolean(data.get("is_verified"));
+
+    const existingUser = await users.findOne({ _id: id as unknown as ObjectId });
+    if (existingUser === null) {
+        return notFound404(c);
+    }
 
     users.updateOne({ _id: id as unknown as ObjectId }, {
         "$set": {
-            user, email, address, date_of_birth, created_at, updated_at, is_verified
+            name, email, address, date_of_birth, created_at, updated_at, is_verified
         },
     });
     return c.redirect("/users");

@@ -1,44 +1,24 @@
 import { FC } from 'hono/jsx';
-import { User as UserView } from './db';
+import { User } from './db';
 import dayjs from 'dayjs';
 
 export interface Props {
-    user: UserView;
+    user: User;
 };
 
-function toTwoDigits(num: number) {
-    if (num < 10) {
-        return "0" + num
-    }
-    return "" + num
-}
-
-function toFourDigits(num: number) {
-    if (num < 10) {
-        return "000" + num
-    }
-    if (num < 100) {
-        return "00" + num
-    }
-    if (num < 1000) {
-        return "0" + num
-    }
-    return "" + num
-}
 
 function toDate(lol: string | Date) {
     const date = dayjs(lol);
 
     const format = date.format("YYYY-MM-DDTHH:ss");
-    console.log(format)
     return format
 }
 
 const UserView: FC<Props> = ({ user }) => {
     return <form method='post'>
         <input name='_id' value={user._id} hidden />
-        <label for='user'>User</label><br />
-        <input name='user' value={user.name} /><br />
+        <label for='name'>Name</label><br />
+        <input name='name' value={user.name} /><br />
         <label for='email'>E-Mail</label><br />
         <input type={"email"} name='email' value={user.email} /><br />
         <label for='address'>Address</label><br />
