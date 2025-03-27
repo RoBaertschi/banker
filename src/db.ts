@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 
-const DB_HOST = process.env["DB_HOST"] || "127.0.0.1"
-const DB_PORT = process.env["DB_PORT"] || "27017"
+const DB_HOST = process.env["DB_HOST"] || "127.0.0.1";
+const DB_PORT = process.env["DB_PORT"] || "27017";
 
 const connectionString = `mongodb://${DB_HOST}:${DB_PORT}/?directConnection=true`;
-console.log(connectionString)
+console.log(connectionString);
 const mongo = new MongoClient(connectionString);
 
 const db = mongo.db("appDatabase");
@@ -12,25 +12,25 @@ const users = db.collection("Users");
 const accounts = db.collection("Accounts");
 
 export type User = {
-    _id: string;
-    name: string;
-    email: string;
-    address: string;
-    date_of_birth: Date;
-    created_at: Date;
-    updated_at: Date;
-    is_verified: boolean;
-    accounts: string[];
+  _id: string;
+  name: string;
+  email: string;
+  address: string;
+  date_of_birth: Date;
+  created_at: Date;
+  updated_at: Date;
+  is_verified: boolean;
+  accounts: string[];
 };
 
 async function connectToMongo() {
-    try {
-        await mongo.connect();
-        console.log("MongoDB connected");
-    } catch (error) {
-        console.error("MongoDB connection error:", error);
-        process.exit(1);
-    }
+  try {
+    await mongo.connect();
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    process.exit(1);
+  }
 }
 
 connectToMongo();

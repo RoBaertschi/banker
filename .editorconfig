@@ -2,4 +2,4 @@ root = true
 
 [*.{tsx,ts,js,jsx}]
 indent_style = space
-indent_size = 4
+indent_size = 2

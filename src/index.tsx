@@ -29,7 +29,7 @@ app.get("/", async (c) => {
           </li>
         </ul>
       </main>
-    </BaseDocument>
+    </BaseDocument>,
   );
 });
 
@@ -70,7 +70,7 @@ app.get("/users-search", async (c) => {
       }}
       data={allUsers}
       baseUri="/users"
-    ></TableView>
+    ></TableView>,
   );
 });
 
@@ -106,7 +106,7 @@ app.get("/users", async (c) => {
         data={allUsers}
         baseUri="/users"
       ></TableView>
-    </BaseDocument>
+    </BaseDocument>,
   );
 });
 
@@ -127,7 +127,7 @@ app.get("/create-user", async (c) => {
     <BaseDocument title="Create User">
       <TopElement />
       <UserView user={user} />
-    </BaseDocument>
+    </BaseDocument>,
   );
 });
 
@@ -168,7 +168,7 @@ app.get("/accounts-search", async (c) => {
         updated_at: "Updated At",
       }}
       data={allUsers}
-    ></TableView>
+    ></TableView>,
   );
 });
 
@@ -190,7 +190,7 @@ app.get("/accounts", async (c) => {
         data={allUsers}
         baseUri="/accounts"
       ></TableView>
-    </BaseDocument>
+    </BaseDocument>,
   );
 });
 
@@ -198,7 +198,7 @@ app.get("/accounts/:id", async (c) => {
   const id = c.req.param("id");
   const transactions = await accounts.findOne(
     { _id: id as unknown as ObjectId },
-    { projection: { transactions: 1 } }
+    { projection: { transactions: 1 } },
   );
 
   if (!transactions) {
@@ -215,7 +215,7 @@ app.get("/accounts/:id", async (c) => {
         description: "Description",
       }}
       data={transactions.transactions}
-    ></TableView>
+    ></TableView>,
   );
 });
 
@@ -233,7 +233,7 @@ function notFound404(c: Context) {
   return c.html(
     <BaseDocument title="404 Not Found">
       Could not find requested user
-    </BaseDocument>
+    </BaseDocument>,
   );
 }
 
@@ -265,7 +265,7 @@ app.get("/about", (c) => {
           top: `${Math.random() * 100}vh`,
           left: `${Math.random() * 100}vw`,
         }}
-      />
+      />,
     );
   }
 
@@ -282,7 +282,7 @@ app.get("/about", (c) => {
       >
         {ricks}
       </div>
-    </BaseDocument>
+    </BaseDocument>,
   );
 });
 
@@ -315,7 +315,7 @@ app.post("/users", async (c) => {
         updated_at,
         is_verified,
       },
-    }
+    },
   );
   return c.redirect("/users");
 });
