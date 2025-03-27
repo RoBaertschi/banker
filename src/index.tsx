@@ -228,6 +228,16 @@ app.delete("/accounts/:id", async (c) => {
   return c.text("", 200);
 });
 
+app.delete("/users/:id", async (c) => {
+  const id = c.req.param("id");
+  const result = await users.deleteOne({ _id: id as unknown as ObjectId });
+  if (result.deletedCount === 0) {
+    return c.text("No user found", 404);
+  }
+  return c.text("", 200);
+}
+);
+
 function notFound404(c: Context) {
   c.status(404);
   return c.html(
