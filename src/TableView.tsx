@@ -59,6 +59,8 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
                   hx-trigger="click"
                   hx-target={`#row-${id}`}
                   hx-swap="delete"
+                  hx-confirm="Are you sure you want to delete this user?"
+                  style={{ backgroundColor: "red", color: "white" }}
                 >
                   Delete
                 </button>
