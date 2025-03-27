@@ -5,3 +5,9 @@ services:
       - "27017:27017"
     volumes:
       - ./dump.js:/docker-entrypoint-initdb.d/dump.js
+  banker:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: "mongo"

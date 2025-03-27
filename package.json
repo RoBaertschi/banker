@@ -2,7 +2,7 @@
   "name": "banker",
   "scripts": {
     "dev": "bun run --watch src/index.tsx",
-    "build": "bun build src/index.tsx --outdir ./build --splitting"
+    "build": "bun build src/index.tsx --outdir ./build --splitting --target=bun"
   },
   "dependencies": {
     "dayjs": "^1.11.13",

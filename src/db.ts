@@ -1,6 +1,10 @@
 import { MongoClient } from "mongodb";
 
-const connectionString = "mongodb://127.0.0.1:27017/?directConnection=true";
+const DB_HOST = process.env["DB_HOST"] || "127.0.0.1"
+const DB_PORT = process.env["DB_PORT"] || "27017"
+
+const connectionString = `mongodb://${DB_HOST}:${DB_PORT}/?directConnection=true`;
+console.log(connectionString)
 const mongo = new MongoClient(connectionString);
 
 const db = mongo.db("appDatabase");
