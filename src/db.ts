@@ -14,7 +14,7 @@ const accounts = db.collection("Accounts");
 export type User = {
   _id: string;
   name: string;
-  email: string;
+  email?: string | undefined;
   address: string;
   date_of_birth: Date;
   created_at: Date;
