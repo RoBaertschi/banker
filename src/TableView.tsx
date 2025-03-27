@@ -26,7 +26,7 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
       {data.map((data) => {
         const tds = [];
 
-        for (let key in data) {
+        for (let key in attributes) {
           if (!(key in attributes)) {
             continue;
           }
@@ -39,6 +39,8 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
             } else if ("$timestamp" in tdata) {
               tdata = tdata.$timestamp;
             }
+          } else if (tdata === undefined) {
+            tdata = "<NOT AVAILABLE>";
           }
 
           tds.push(<td>{tdata}</td>);

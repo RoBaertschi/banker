@@ -1342,3 +1342,14 @@ db.Accounts.insertOne({
     $timestamp: "7483862474693804033",
   },
 });
+
+db.Accounts.insertOne({
+  owners: ["67dc0545207f868abb6360cb"],
+  number: 502646,
+  balance: {
+    $numberDecimal: "7787.99",
+  },
+  created_at: {
+    $timestamp: "7483862474693804033",
+  },
+});

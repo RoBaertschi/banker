@@ -135,7 +135,11 @@ app.post("/create-user", async (c) => {
   const data = await c.req.formData();
 
   const name = data.get("name");
-  const email = data.get("email");
+  let email: FormDataEntryValue | undefined = data.get("email") ?? undefined;
+  console.error(email, typeof email, email?.toString().trim() === "")
+  if (email && email.toString().trim() === "") {
+    email = undefined;
+  }
   const address = data.get("address");
   const date_of_birth = data.get("date_of_birth");
   const created_at = data.get("created_at");
@@ -301,12 +305,16 @@ app.post("/users", async (c) => {
 
   const id = data.get("_id");
   const name = data.get("name");
-  const email = data.get("email");
+  let email: FormDataEntryValue | undefined = data.get("email") ?? undefined;
+  console.error(email)
+  if (email && email.toString().trim() === "") {
+    email = undefined;
+  }
   const address = data.get("address");
   const date_of_birth = data.get("date_of_birth");
   const created_at = data.get("created_at");
-  const updated_at = data.get("updated_at");
-  const is_verified = Boolean(data.get("is_verified"));
+  const updated_at = data.get("updated_at") ?? undefined;
+  const is_verified = Boolean(data.get("is_verified")) ?? undefined;
 
   const existingUser = await users.findOne({ _id: id as unknown as ObjectId });
   if (existingUser === null) {

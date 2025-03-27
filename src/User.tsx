@@ -19,7 +19,7 @@ const UserView: FC<Props> = ({ user }) => {
       <input name="_id" value={user._id} hidden />
       <label for="name">Name</label>
       <br />
-      <input name="name" value={user.name} />
+      <input required name="name" value={user.name} />
       <br />
       <label for="email">E-Mail</label>
       <br />
@@ -27,7 +27,7 @@ const UserView: FC<Props> = ({ user }) => {
       <br />
       <label for="address">Address</label>
       <br />
-      <input name="address" value={user.address} />
+      <input required name="address" value={user.address} />
       <br />
       <label for="date_of_birth">Date of Birth</label>
       <br />
