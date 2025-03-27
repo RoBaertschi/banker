@@ -9,7 +9,7 @@ export interface Owner {
 
 export interface Props {
   account: Account;
-  ownersList: Owner[]; 
+  ownersList: Owner[];
 }
 
 function toDate(input: string | Date) {
@@ -21,15 +21,15 @@ const AccountView: FC<Props> = ({ account, ownersList }) => {
   return (
     <form method="post">
       <input name="_id" value={account._id} hidden />
-      
+
       <label htmlFor="description">Description</label>
       <br />
-      <input required name="description" value={account.description} />
+      <input name="description" value={account.description} />
       <br />
 
       <label htmlFor="balance">Balance</label>
       <br />
-      <input required name="balance" value={account.balance} />
+      <input name="balance" value={account.balance} />
       <br />
 
       <label htmlFor="currency">Currency</label>
