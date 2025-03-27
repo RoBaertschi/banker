@@ -116,7 +116,6 @@ app.get("/create-user", async (c) => {
   const user: User = {
     _id: "",
     name: "",
-    email: "",
     address: "",
     date_of_birth: new Date(),
     created_at: new Date(),
@@ -185,9 +184,9 @@ app.post("/create-user", async (c) => {
   const data = await c.req.formData();
 
   const name = data.get("name");
-  let email: FormDataEntryValue | undefined = data.get("email") ?? undefined;
-  console.error(email, typeof email, email?.toString().trim() === "");
-  if (email && email.toString().trim() === "") {
+  let email: FormDataEntryValue | undefined = data.get("email")?.toString() ?? undefined;
+  console.error(email, typeof email, email?.toString().trim() === "")
+  if (email && email.trim() === "") {
     email = undefined;
   }
   const address = data.get("address");

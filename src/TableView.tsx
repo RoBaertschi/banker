@@ -3,7 +3,7 @@ import { FC } from "hono/jsx";
 interface Props {
   // Maps attribute name to readable name
   attributes: {
-    [name: string]: string;
+    [name: string]: string | { empty: true, name: string };
   };
   data: { [d: string]: any }[];
   baseUri?: string;
@@ -27,8 +27,9 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
         const tds = [];
 
         for (let key in attributes) {
-          if (!(key in attributes)) {
-            continue;
+          let optional = false;
+          if (typeof attributes[key] === "object") {
+            optional = attributes[key].empty;
           }
           let tdata: any = data[key as keyof typeof data];
           if (typeof tdata === "boolean") {
@@ -40,6 +41,8 @@ const TableView: FC<Props> = ({ attributes, data, baseUri, className }) => {
               tdata = tdata.$timestamp;
             }
           } else if (tdata === undefined) {
+            tdata = "<NOT AVAILABLE>";
+          } else if (typeof tdata === "string" && tdata === "") {
             tdata = "<NOT AVAILABLE>";
           }
 

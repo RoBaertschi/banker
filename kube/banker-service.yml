@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: banker
+  name: banker-service
+  labels:
+    name: banker
+spec:
+  selector:
+    app: banker
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
